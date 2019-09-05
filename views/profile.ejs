@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                <a class="navbar-brand" href="#">AlgoScale</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <h2>Profile</h2>
+    Hi
+    <%= email %>
+        <%if (allUsers && allUsers.length > 0) { %>
+            <form action="/delete-user" method="POST">
+                <select id="users" name="users">
+
+                <%
+                for ( var i = 0; i < allUsers.length; i++ )
+                {
+                    %><option value="<%=allUsers[i]._id %>"><%=allUsers[i].email %></option><%
+                }
+                %>
+                </select>
+                <br><br>
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+
+            <% } else { %>
+                <h3>No Other Users</h3>
+                <% } %>
+
+
+</body>
+
+</html>
