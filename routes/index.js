@@ -123,7 +123,7 @@ router.post("/login", async(req, res, next) => {
                 allUsers: allUsers
             });
         } else {
-            res.render("login", {
+            res.render("index", {
                 title: title,
                 errors: {
                     email: {
